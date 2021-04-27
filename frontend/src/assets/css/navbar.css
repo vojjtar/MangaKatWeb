@@ -1,0 +1,13 @@
+#mainDiv{
+
+    background-color: #151515;
+
+}
+
+
+#mainDiv img{
+    margin-left: 1rem;
+    padding: 0;
+    height: 2.6rem;
+    border-radius: 100px;
+}
