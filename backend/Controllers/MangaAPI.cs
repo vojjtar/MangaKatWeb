@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using System.IO;
 
 using backend.ViewModels;
+using backend.webscrape;
 
 namespace backend.Controllers
 {
@@ -57,6 +58,26 @@ namespace backend.Controllers
             var ext = Path.GetExtension(path).ToLowerInvariant();
 
             return File(memory, "application/zip", "lol.zip");
+        }
+
+
+        [HttpGet("mangainfo")]
+        public IAsyncResult getMangaInfo()
+        {
+            string mangaName = getMangaInfo.mangaTitle();
+
+            var model = new testJsonString{
+                jmeno = mangaName,
+                prijmeni = "parek",
+                vek = "19",
+                veci = new Dictionary<string, string>
+                {
+                    {"nazev", "lolololol"},
+                    {"pipik", "ano"}
+                }
+            };
+
+            return new JsonResult(model);
         }
 
     }
